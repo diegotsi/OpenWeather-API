@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Temperatura</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="css/animate.css"  media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"  media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+	      <div class="col-md-12">
+	      	<h1 id="titulo">Consultar Temperatura</h1>
+	      	<input type="text" id="nomeCidade" placeholder = "Digite o nome da cidade"/>
+	      	<button onclick="exibirDados('A','1')">Consultar</button>
+	      </div>
+	    </div>
+
+
+
+	    <div class="row">
+	    	<div id="teste" class="col-md-5 ocultar">
+	    		<div class="exibirCidade">
+		            <div id="image-bg">
+		             </div>
+		             <div class="overlay">
+		             </div>
+		             <div class="content">
+		             	<h1 id="city"></h1>
+		             	<h2 id="tempAtual"> </h2>
+		             	<div id="imgIcon"></div>
+		             	<p id="descricao"> <p>
+		             	<p id="tempMinima">Temperatura mínima : </p>
+		             	<p id="tempMaxima">Temperatura máxima : </p>
+		             	<p id="nascerDoSol">Nascer do sol : </p>
+		             	<p id="porDoSol">Por do sol : </p>
+		             	<p id="latitude">Latitude : </p>
+		             	<p id="longitude">Longitude : </p>
+		             </div>
+	        	</div>
+	   		</div>
+	   		<div id="teste2" class="col-md-5 ocultar" data-wow-delay="0.7s">
+	   			<div id="googleMap" style="width:500px;height:380px;"></div>
+	   		</div>
+				<div id="listaCidades" class="col-md-2">
+					<ul id="listarCidades">
+					</ul>
+				</div>
+	   	</div>
+	</div>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD7wuclhSp5RpF7bxHq0G2_PsiqTpuAc-0"></script>
+<script>
+function initialize(latitude,longitude) {
+  var mapProp = {
+    center:new google.maps.LatLng(latitude,longitude),
+    zoom:10,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+
+	<!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+     <script type="text/javascript" src="js/wow.min.js"></script>
+      <script>
+              new WOW().init();
+              </script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</body>
+</html>
