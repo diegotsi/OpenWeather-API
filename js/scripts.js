@@ -108,12 +108,12 @@ function exibirDados(dados,tipo){
 
 
 			var enderecoIcone = "http://openweathermap.org/img/w/"+resultado.weather[0].icon+".png";
-			var traducao = pedeRequisicao("https://www.googleapis.com/language/translate/v2?key=AIzaSyD7wuclhSp5RpF7bxHq0G2_PsiqTpuAc-0&q="+resultado.weather[0].description+"&source=en&target=pt-br");
 
 			document.getElementById('image-bg').style.backgroundImage="url(https://maps.googleapis.com/maps/api/streetview?size=400x800&location="+resultado.coord.lat+","+resultado.coord.lon+"&fov=200&heading=305&pitch=10&key=AIzaSyD7wuclhSp5RpF7bxHq0G2_PsiqTpuAc-0)";
 
 			modificaHTML("city",resultado.name);
-			modificaHTML("descricao",traducao.data.translations[0].translatedText);
+			modificaHTML("descricao",resultado.weather[0].description);
+			//modificaHTML("descricao",traducao.data.translations[0].translatedText);
 
 			modificaHTML("imgIcon","<img src="+enderecoIcone+" width='100px'/>");
 
